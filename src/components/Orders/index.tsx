@@ -13,8 +13,8 @@ export default function Orders() {
       transports: ['websocket'],
     });
 
-    socket.on('order@new', (e) => {
-      console.log('pedido', e);
+    socket.on('order@new', (order) => {
+      setOrders((prevState) => prevState.concat(order));
     });
   }, []);
 
